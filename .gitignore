@@ -1,0 +1,9 @@
+# .idea 폴더에서 개인 설정 파일 무시
+java/java_start/.idea/workspace.xml
+java/java_start/.idea/usage.statistics.xml
+java/java_start/.idea/vcs.xml
+
+# 빌드 파일 무시
+java/java_start/*.iml
+out/
+
