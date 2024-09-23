@@ -41,7 +41,20 @@ public class Method1Ref {
         메서드를 정의할 때 선언한 변수인 String str, int age를 매개변수, 파라미터라 한다.
         메서드를 호출할 때 인수(argument)를 넘기면, 그 인수가 매개변수(parameter)에 대입된다. ---> 이 부분이 중요
 
-    3.
-
-
  */
+/*
+    public static int add(int a, int b) {
+     //메서드 본문, 실행 코드
+    }
+
+    제어자 반환타입 메서드이름(매개변수 목록) {
+     메서드 본문
+    }
+
+    1. 제어자(Modifier) : public, static과 같은 부분
+    2. 반환타입(Return Type) : public static int~ , public static void ~
+    3. 매서드 이름
+    4. 매개변수(Parameter) : 입력 값으로, 매서드 내부에서 사용할 수 있는 변수. 입력값이 없는 메서드는 매개변수 필요 x
+    5. 메서드 본문
+ */
+
