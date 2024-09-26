@@ -5,7 +5,6 @@ package class1;
         배열을 사용하면 특정 타입을 연속한 데이터 구조로 묶어서 편리하게 관리할 수 있다.
         Student 클래스를 사용한 변수들도 Student 타입이기 때문에 학생도 배열을 사용해서 하나의 데이터 구조로 묶어
         서 관리할 수 있다.
-
  */
 
 public class ClassStart4 {

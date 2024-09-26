@@ -31,6 +31,7 @@ public class ClassStart5 {
         }
 
         // 향상된 for문 적용 --> 배열에서 처음부터 끝까지 모든 원소에 대해 접근할 때 사용
+        // iter를 통해 간편히 사용 가능
         for (Student s : students) {
             System.out.println("이름:" + s.name + " 나이:" + s.age + " 성적:" + s.grade);
         }
