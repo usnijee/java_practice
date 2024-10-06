@@ -6,8 +6,8 @@ public class MathArrayUtils {
     private static int max ;
     private static int min ;
 
-    public MathArrayUtils(){ // 객체 생성시 null 반환
-        return;
+    private MathArrayUtils(){ // 객체 생성시 null 반환
+        return; // private + 생성자 = 인스턴스를 생성하지 말라는 의미
     }
 
     public static int sum(int[] values){
