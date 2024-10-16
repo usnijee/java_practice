@@ -8,6 +8,14 @@ package extends1.super1;
     그러면 이러한 상황에서 부모 클래스의 속성을 어떻게 사용할까?
     -> super!
  */
+
+/*
+    super는 부모 클래스에 대한 참조를 뜻한다
+
+    - this : 본인 타입
+    - super : 본인 타입의 상위
+ */
+
 public class Parent {
     public String value = "parent";
 
@@ -15,3 +23,4 @@ public class Parent {
         System.out.println("Parent.hello");
     }
 }
+
