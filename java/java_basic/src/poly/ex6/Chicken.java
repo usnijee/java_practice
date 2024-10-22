@@ -1,7 +1,5 @@
 package poly.ex6;
 
-import java.sql.SQLOutput;
-
 public class Chicken extends AbstractAnimal implements Fly{
     @Override
     public void sound() {
