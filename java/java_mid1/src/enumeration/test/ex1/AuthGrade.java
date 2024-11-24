@@ -1,18 +1,18 @@
 package enumeration.test.ex1;
 
 public enum AuthGrade {
-    GUEST(1,"손님", new String[]{"메인 화면"}),
-    LOGIN(2,"로그인 회원", new String[]{"메인 화면", "이메일 관리 화면"}),
-    ADMIN(3,"관리자", new String[]{"메인 화면", "이메일 관리 화면", "관리자 화면"}) ;
+    GUEST(1,"손님", new String[]{"메인화면"}),
+    LOGIN(2,"로그인 회원",new String[]{"메인화면","이메일 관리 화면"}),
+    ADMIN(3,"관리자",new String[]{"메인화면","이메일 관리 화면","관리자 화면"});
 
     private final int level;
     private final String description;
-    private final String[] mainScreen;
+    private final String[] menuList;
 
-    AuthGrade(int level, String description, String[] mainScreen) {
+    AuthGrade(int level, String description, String[] menuList) {
         this.level = level;
         this.description = description;
-        this.mainScreen = mainScreen;
+        this.menuList = menuList;
     }
 
     public int getLevel() {
@@ -23,7 +23,7 @@ public enum AuthGrade {
         return description;
     }
 
-    public String[] getMainScreen() {
-        return mainScreen;
+    public String[] getMenuList() {
+        return menuList;
     }
 }
