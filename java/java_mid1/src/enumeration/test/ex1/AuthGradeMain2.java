@@ -14,7 +14,7 @@ public class AuthGradeMain2 {
         String grade = scanner.nextLine();
         start = System.currentTimeMillis();
         for (AuthGrade g : grades) {
-            if (g.name().equals(grade)) {
+            if  (g.name().equals(grade)) {
                 System.out.println("당신의 등급은 " + g.getDescription() + " 회원입니다.");
                 printMenuList(g);
                 break;
