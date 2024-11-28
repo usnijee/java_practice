@@ -3,7 +3,6 @@ package time;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoField;
-import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
 
 public class ChangeTimeWithMain {
@@ -22,6 +21,7 @@ public class ChangeTimeWithMain {
 
         //TemporalAdjuster 사용 --> 복잡한 날짜(다음주 금요일, 이번 달의 마지막 일요일) 계산 가능
         //다음주 금요일
+        //DayOfWeek : 월,화,수,목,금,토,일을 나타내는 열거형
         LocalDateTime with1 = dt.with(TemporalAdjusters.next(DayOfWeek.FRIDAY));
         System.out.println("기준 날짜: " + dt);
         System.out.println("다음 금요일: " + with1);
