@@ -7,7 +7,7 @@ public class Network {
         networkMessage.print();
     }
 
-    private static class NetworkMessage { // 중첩 정적 클래스 사용 --> ex1의 리팩토링 결과
+    private static class NetworkMessage { // 정적 중첩 클래스 사용 --> ex1의 리팩토링 결과
 
         private String content;
 

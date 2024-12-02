@@ -43,7 +43,5 @@ public class LocalOuterV3 {
             System.out.println("field = " + field); // 캡처된 지역변수 localVar, paramVar를 확인할 수 있다.
         }
 
-
-
     }
 }

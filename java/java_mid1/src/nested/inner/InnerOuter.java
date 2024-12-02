@@ -5,6 +5,7 @@ public class InnerOuter {
     private static int outClassValue = 3;
     private int outInstanceValue = 2;
 
+    // 내부 클래스
     class Inner {
         private int innerInstanceValue = 1;
 
