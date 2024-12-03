@@ -25,3 +25,10 @@ public class NetworkServiceV1_3 {
         return !connectResult.equals("success");
     }
 }
+/*
+    NetworkService1_2, NetworkService1_3을 보면 정상과 오류부분의 흐름이 매우 복잡하게 섞여 있음을 알 수 있다.
+    그 이유는 '반환값'을 기준으로 예외를 처리하려고 시도했기 때문이다.
+
+    String connectResult = client.connect();
+    의 반환값인 connectResult를 기준으로 예외처리를 했기에 정상과 오류의 로직이 섞일 수 밖에 없다.
+ */
