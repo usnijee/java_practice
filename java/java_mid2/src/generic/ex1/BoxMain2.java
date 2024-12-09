@@ -26,6 +26,6 @@ public class BoxMain2 {
         // Object이기에 모든 타입을 인수로 받을 수 있기에 잘못된 타입의 인수도 받을 수 있다.
         integerBox.set("문자100");
         Integer result = (Integer) integerBox.get(); // String -> Integer 캐스팅 예외
-        System.out.println("result = " + result);;
+//        System.out.println("result = " + result);;
     }
 }
