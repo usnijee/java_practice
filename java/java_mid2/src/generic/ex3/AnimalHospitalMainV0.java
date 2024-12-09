@@ -1,6 +1,10 @@
 package generic.ex3;
 /**
  *  개 병원은 개만 받을 수 있고, 고양이 병원은 고양이만 받을 수 있어야 한다
+ *
+ *  DogHospital과 CatHospital을 나누기
+ *  - 코드 재사용성 x
+ *  - 타입 안정성 o
  */
 
 import generic.animal.Cat;
