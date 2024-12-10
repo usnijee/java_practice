@@ -13,7 +13,7 @@ public class UnitPrinter {
 
     // 와일드 카드
     // 이미 형성되어 있는 제너릭 타입의 shuttle 클래스를 매개변수로 받기에 와일드 카드 사용 가능
-    public static void printV2(Shuttle<?> shuttle) {
+    public static void printV2(Shuttle<? extends BioUnit> shuttle) {
         System.out.println("이름 : " + shuttle.out().getName() + ", HP: " + shuttle.out().getHp());
     }
 
