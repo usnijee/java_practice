@@ -1,7 +1,8 @@
-package enumeration.ref1;
+package review.enumeration.ex1;
 
 public class DiscountService {
+
     public int discount(ClassGrade classGrade, int price) {
-        return price * classGrade.getDiscountPercent() / 100;
+        return price * classGrade.getDiscountRate() / 100;
     }
 }
