@@ -3,6 +3,7 @@ package nested.nested;
 public class NestedOuter {
 
     private static int outClassValue = 3;
+    public static int outClassValue2 = 1;
     private int outIntanceValue = 2;
 
     // 정적 중첩 클래스
