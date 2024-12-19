@@ -13,7 +13,7 @@ public class HashStart5 {
 
     public static void main(String[] args) {
         // {1, 2, 5, 8, 14, 99}
-        LinkedList<Integer>[] buckets = new LinkedList[CPACITY];
+        LinkedList<Integer>[] buckets = new LinkedList[CPACITY]; // 배열의 원소를 LinkedList로 만들어 해시 충돌에 대비
         for (int i = 0; i < CPACITY; i++) {
             buckets[i] = new LinkedList<>();
         }
