@@ -1,4 +1,4 @@
-package collection.set.member;
+package collection.set;
 /**
  * 모든 타입을 저장할 수 있는 Set
  */
