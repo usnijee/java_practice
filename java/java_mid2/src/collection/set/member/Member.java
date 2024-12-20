@@ -1,6 +1,6 @@
 package collection.set.member;
 /**
- *  자바에서 제공하는 hashCode() : 모든 객체 타입에 대해 hash코드를 제공
+ *  자바에서 제공하는 hashCode() : 모든 객체 타입에 대해 hash코드를 제공함
  */
 
 import java.util.Objects;
