@@ -10,7 +10,7 @@ public class MyLinkedListV2 {
         if (first == null) {
             first = newNode;
         } else {
-            Node lastNode = getLastNode();
+            Node lastNode = getLastNode(); // O(n)
             lastNode.next = newNode;
         }
         size++;
@@ -19,7 +19,7 @@ public class MyLinkedListV2 {
 
     private Node getLastNode() {
         Node x = first;
-        while (x.next != null) {
+        while (x.next != null) { //
             x = x.next;
         }
         return x;

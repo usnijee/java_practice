@@ -1,7 +1,5 @@
 package collection.link;
 
-import static java.awt.AWTEventMulticaster.add;
-
 public class NodeMain3 {
 
     public static void main(String[] args) {
