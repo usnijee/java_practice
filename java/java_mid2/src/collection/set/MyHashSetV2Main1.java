@@ -1,7 +1,5 @@
 package collection.set;
 
-import collection.set.member.MyHashSetV2;
-
 public class MyHashSetV2Main1 {
 
     public static void main(String[] args) {

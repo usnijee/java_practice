@@ -8,7 +8,6 @@ package collection.set;
  */
 
 import collection.set.member.Member;
-import collection.set.member.MyHashSetV2;
 
 public class MyHashSetV2Main2 {
 
