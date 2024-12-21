@@ -43,7 +43,7 @@ public class MyHashSetV2 {
     public boolean add(Object value) {
         int hashIndex = hashIndex(value);
         LinkedList<Object> bucket = buckets[hashIndex];
-        if (bucket.contains(value)) { // set의 원소인 LinkedList내부에 중복된 원소가 있는지 확인 -> LinkedList의 contains 메서드임
+        if (bucket.contains(value)) { // set의 원소인 LinkedList내부에 중복된 원소가 있는지 확인 -> 동일한 원소를 한번더 저장할 이유는 없음 (set의 특징)
             return false;
         }
         bucket.add(value);
