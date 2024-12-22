@@ -3,7 +3,6 @@ package collection.set.test;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-
 /**
  * 문제 설명
  * 여러 정수가 입력된다. 여기서 중복 값을 제거하고 값을 출력해라.
@@ -19,8 +18,9 @@ public class UniqueNamesTest3 {
     }
 
     private static void printInput(Integer[] inputArr) {
-        Set<Integer> treeset = new TreeSet<>();
-        treeset.addAll(List.of(inputArr));
+//        Set<Integer> treeset = new TreeSet<>();
+//        treeset.addAll(List.of(inputArr));
+        Set<Integer> treeset = new TreeSet<>(List.of(inputArr));
         for (Integer num : treeset) {
             System.out.println(num);
         }
