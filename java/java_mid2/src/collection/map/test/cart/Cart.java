@@ -17,7 +17,6 @@ public class Cart {
         }
     }
 
-
     public void minus(Product product, int count) {
         if (cartMap.get(product) > count) {
             cartMap.put(product, cartMap.get(product) - count);
