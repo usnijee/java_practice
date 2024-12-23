@@ -1,4 +1,4 @@
-package collection.deque.test;
+package collection.deque.test.stack;
 /**
  * 간단한 히스토리 확인
  * 스택에 push() 를 통해서 다음 데이터를 순서대로 입력해라.
@@ -13,7 +13,6 @@ package collection.deque.test;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Stack;
 
 public class SimpleHistoryTestV2 {
 
