@@ -10,15 +10,9 @@ import java.util.Map;
 public class CommonKeyValueSum1V2 {
 
     public static void main(String[] args) {
-        Map<String, Integer> map1 = new HashMap<>();
-        map1.put("A", 1);
-        map1.put("B", 2);
-        map1.put("C", 3);
-
-        Map<String, Integer> map2 = new HashMap<>();
-        map2.put("B", 4);
-        map2.put("C", 5);
-        map2.put("D", 6);
+        // Map.of를 활용하면 Map을 유용하게 만들수 있음 -> 하지만 불변객체여서 변경 불가능
+        Map<String, Integer> map1 = Map.of("A", 1, "B", 2, "C", 3);
+        Map<String, Integer> map2 = Map.of("B", 4,"C", 5, "D", 6);
 
         // 코드 작성
         // V1버전보다 효율적 -> 이중 for문은 시간복잡도가 너무 높다
