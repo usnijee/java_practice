@@ -67,7 +67,7 @@ public class MyArrayListRe2 {
 
     // 특정 value의 인덱스 반환
     public int indexOf(Object value) {
-        for (int i = 0; i < elementArray.length; i++) {
+        for (int i = 0; i < size; i++) {
             if (elementArray[i].equals(value)) {
                 return i;
             }
@@ -80,3 +80,4 @@ public class MyArrayListRe2 {
         return Arrays.toString(Arrays.copyOf(elementArray,size));
     }
 }
+
