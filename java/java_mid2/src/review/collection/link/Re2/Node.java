@@ -1,18 +1,18 @@
 package review.collection.link.Re2;
 
-public class Node {
+public class Node<E> {
 
-    Object item;
-    Node next;
+    E item;
+    Node<E> next;
 
-    public Node(Object item) {
+    public Node(E item) {
         this.item = item;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        Node x = this;
+        Node<E> x = this;
         sb.append("[");
         while (x != null) {
             sb.append(x.item);
