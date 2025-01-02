@@ -2,7 +2,7 @@ package review.collection.link.Re2;
 
 public class MyLinkedListRe<E> implements MyList<E> {
 
-    private Node first;
+    private Node<E> first;
     private int size = 0;
 
     @Override
@@ -14,11 +14,11 @@ public class MyLinkedListRe<E> implements MyList<E> {
     // 추가 (순차 추가)
     @Override
     public void add(E o) {
-        Node newNode = new Node(o);
+        Node<E> newNode = new Node(o);
         if (first == null) {
             first = newNode;
         } else {
-            Node lastNode = getLastNode();
+            Node<E> lastNode = getLastNode();
             lastNode.next = newNode;
         }
         size++;
@@ -59,8 +59,8 @@ public class MyLinkedListRe<E> implements MyList<E> {
     }
 
     public E remove(int index) {
-        Node removedNode = getNode(index);
-        Object removedItem = removedNode.item;
+        Node<E> removedNode = getNode(index);
+        E removedItem = removedNode.item;
         if (index == 0) {
             first = removedNode.next;
         } else {
@@ -73,8 +73,8 @@ public class MyLinkedListRe<E> implements MyList<E> {
         return removedItem;
     }
 
-    private Node getNode(int index) {
-        Node x = first;
+    private Node<E> getNode(int index) {
+        Node<E> x = first;
         for (int i = 0; i < index; i++) {
             x = x.next;
         }
