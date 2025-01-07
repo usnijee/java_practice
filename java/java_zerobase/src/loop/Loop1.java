@@ -55,6 +55,7 @@ public class Loop1 {
 
 
 ////      2-2. do-while
+        // do while은 일단 do!하고 조건문 확인
         System.out.println("== do-while ==");
         boolean knock = false;
         do {
