@@ -40,7 +40,7 @@ public class Assign6 {
         List<String> candidateList = new ArrayList<>(candidates.keySet()); // 후보자 이름만 인덱싱이 가능한 자료구조에 저장
 
         for (int i = 1; i <= totalVote; i++) {
-            int count = random.nextInt(1, totalCandidate);
+            int count = random.nextInt(1, totalCandidate+1);
             double percent = ((double) i / totalVote) * 100; // 투표 진행률
             String electedCandidate = candidateList.get(count - 1);
             candidates.put(electedCandidate, candidates.get(electedCandidate) + 1);
