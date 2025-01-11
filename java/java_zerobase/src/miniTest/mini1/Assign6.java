@@ -40,13 +40,12 @@ public class Assign6 {
         List<String> candidateList = new ArrayList<>(candidates.keySet()); // 후보자 이름만 인덱싱이 가능한 자료구조에 저장
 
         for (int i = 1; i <= totalVote; i++) {
+
             // 투표 진행 로직 , 각 투표 현황에서 elected된 후보자 반환
             String electedCandidate = performVoting(totalCandidate, candidates, random, candidateList);
 
-            List<Entry<String, Integer>> entryList = new ArrayList<>(entries); // entrySet 일반 for문을 사용하기 위함
-            double percent = ((double) i / totalVote) * 100; // 투표 진행률
-            System.out.println("[투표진행률]: " + percent + "%, " + i + "명 투표 => " + electedCandidate);
-            votingStatus(totalVote, entryList);
+            // 투표 진행 상황 출력
+            displayVotingStatus(totalVote, entries, i, electedCandidate);
         }
 
         // 결과 발표
@@ -67,7 +66,15 @@ public class Assign6 {
         return electedCandidate;
     }
 
-    // 각 투표 현황을 depth를 위해 메서드로 추출
+    private static void displayVotingStatus(int totalVote, Set<Entry<String, Integer>> entries, int i, String electedCandidate) {
+        List<Entry<String, Integer>> entryList = new ArrayList<>(entries); // entrySet 일반 for문을 사용하기 위함
+        double percent = ((double) i / totalVote) * 100; // 투표 진행률
+        System.out.println("[투표진행률]: " + percent + "%, " + i + "명 투표 => " + electedCandidate);
+
+        // 투표 현황을 계산하는 로직
+        votingStatus(totalVote, entryList);
+    }
+
     private static void votingStatus(int totalVote, List<Entry<String, Integer>> entryList) {
         for (int j = 1; j <= entryList.size(); j++) {
             Entry<String, Integer> entry = entryList.get(j-1);
