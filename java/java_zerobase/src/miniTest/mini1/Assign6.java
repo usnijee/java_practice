@@ -40,25 +40,31 @@ public class Assign6 {
         List<String> candidateList = new ArrayList<>(candidates.keySet()); // 후보자 이름만 인덱싱이 가능한 자료구조에 저장
 
         for (int i = 1; i <= totalVote; i++) {
-            int count = random.nextInt(1, totalCandidate+1);
-            double percent = ((double) i / totalVote) * 100; // 투표 진행률
-            String electedCandidate = candidateList.get(count - 1);
-            candidates.put(electedCandidate, candidates.get(electedCandidate) + 1);
+            // 투표 진행 로직 , 각 투표 현황에서 elected된 후보자 반환
+            String electedCandidate = performVoting(totalCandidate, candidates, random, candidateList);
 
             List<Entry<String, Integer>> entryList = new ArrayList<>(entries); // entrySet 일반 for문을 사용하기 위함
-
+            double percent = ((double) i / totalVote) * 100; // 투표 진행률
             System.out.println("[투표진행률]: " + percent + "%, " + i + "명 투표 => " + electedCandidate);
             votingStatus(totalVote, entryList);
         }
 
         // 결과 발표
-        Integer max = Collections.max(candidates.values());
+        Integer maxVotes = Collections.max(candidates.values());
         for (Entry<String, Integer> entry : entries) {
-            if (entry.getValue().equals(max)) {
+            if (entry.getValue().equals(maxVotes)) {
                 System.out.printf("%-5s", "[투표결과] 당선인 : " + entry.getKey());   // -> 아직 해결 못함 당선인이 중복되면 어떻게 처리할 것인가 ?????
             }
         }
 
+    }
+
+    private static String performVoting(int totalCandidate, Map<String, Integer> candidates, Random random,
+                                    List<String> candidateList) {
+        int count = random.nextInt(1, totalCandidate +1);
+        String electedCandidate = candidateList.get(count - 1);
+        candidates.put(electedCandidate, candidates.get(electedCandidate) + 1);
+        return electedCandidate;
     }
 
     // 각 투표 현황을 depth를 위해 메서드로 추출
