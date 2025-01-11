@@ -14,7 +14,7 @@ public class Assign6 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Map<String, Integer> candidates = new LinkedHashMap<>(); // 후보자의 득표수를 동시에 순서대로 저장하기 위해 LinkedHashMap 사용
+        Map<String, Integer> candidates = new LinkedHashMap<>(); // 후보자와 득표수를 동시에 순서대로 저장하기 위해 LinkedHashMap 사용
         Random random = new Random();
 
         System.out.print("총 진행할 투표수를 입력해 주세요.");
@@ -48,16 +48,7 @@ public class Assign6 {
             List<Entry<String, Integer>> entryList = new ArrayList<>(entries); // entrySet 일반 for문을 사용하기 위함
 
             System.out.println("[투표진행률]: " + percent + "%, " + i + "명 투표 => " + electedCandidate);
-            for (int j = 1; j <= entryList.size(); j++) {
-                Map.Entry<String, Integer> entry = entryList.get(j-1);
-                String candidateName = entry.getKey();
-                int countOfCandidate = entry.getValue();
-                double percentOfCandidate = ((double) countOfCandidate / totalVote) * 100;
-
-                System.out.printf("%-5s %-7s %5.2f%% %10s%n",
-                        "[기호" + j + "]", candidateName + ":", percentOfCandidate, "(투표수: " + countOfCandidate + ")");
-            }
-            System.out.println();
+            votingStatus(totalVote, entryList);
         }
 
         // 결과 발표
@@ -68,6 +59,20 @@ public class Assign6 {
             }
         }
 
+    }
+
+    // 각 투표 현황을 depth를 위해 메서드로 추출
+    private static void votingStatus(int totalVote, List<Entry<String, Integer>> entryList) {
+        for (int j = 1; j <= entryList.size(); j++) {
+            Entry<String, Integer> entry = entryList.get(j-1);
+            String candidateName = entry.getKey();
+            int countOfCandidate = entry.getValue();
+            double percentOfCandidate = ((double) countOfCandidate / totalVote) * 100;
+
+            System.out.printf("%-5s %-7s %5.2f%% %10s%n",
+                    "[기호" + j + "]", candidateName + ":", percentOfCandidate, "(투표수: " + countOfCandidate + ")");
+        }
+        System.out.println();
     }
 
 }
