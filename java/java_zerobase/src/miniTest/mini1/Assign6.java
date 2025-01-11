@@ -48,9 +48,9 @@ public class Assign6 {
             displayVotingStatus(totalVote, entries, i, electedCandidate);
         }
 
-        // 결과 발표
+        // 당선자 선택 로직
         List<String> winners = chooseWinner(candidates, entries);
-        System.out.printf("%-5s", "[투표결과] 당선인 : " + entry.getKey());
+        System.out.printf("%-5s", "[투표결과] 당선인 : " + String.join(", ", winners));
     }
 
     private static List<String> chooseWinner(Map<String, Integer> candidates, Set<Entry<String, Integer>> entries) {
