@@ -53,6 +53,7 @@ public class Assign7 {
             lottoEach.retainAll(winningNumbers); // 교집합을 통해 공통 개수 구하기
             int matchCounts = lottoEach.size();
             System.out.printf("%-3c %s => %d개 일치\n", alphabet, result, matchCounts);
+            order++;
         }
     }
 
