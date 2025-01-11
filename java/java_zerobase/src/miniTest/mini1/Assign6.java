@@ -41,7 +41,7 @@ public class Assign6 {
 
         for (int i = 1; i <= totalVote; i++) {
 
-            // 투표 진행 로직 , 각 투표 현황에서 elected된 후보자 반환
+            // 투표 진행 로직, 각 투표 현황에서 elected된 후보자 반환
             String electedCandidate = performVoting(totalCandidate, candidates, random, candidateList);
 
             // 투표 진행 상황 출력
@@ -49,13 +49,19 @@ public class Assign6 {
         }
 
         // 결과 발표
+        List<String> winners = chooseWinner(candidates, entries);
+        System.out.printf("%-5s", "[투표결과] 당선인 : " + entry.getKey());
+    }
+
+    private static List<String> chooseWinner(Map<String, Integer> candidates, Set<Entry<String, Integer>> entries) {
         Integer maxVotes = Collections.max(candidates.values());
+        List<String> winners = new ArrayList<>(); // 중복 당선인을 위해 저장 공간을 만들기
         for (Entry<String, Integer> entry : entries) {
-            if (entry.getValue().equals(maxVotes)) {
-                System.out.printf("%-5s", "[투표결과] 당선인 : " + entry.getKey());   // -> 아직 해결 못함 당선인이 중복되면 어떻게 처리할 것인가 ?????
+            if (maxVotes.equals(entry.getValue())) {
+                winners.add(entry.getKey());
             }
         }
-
+        return winners;
     }
 
     private static String performVoting(int totalCandidate, Map<String, Integer> candidates, Random random,
