@@ -14,29 +14,58 @@ public class Assign7 {
 
         System.out.print("로또 개수를 입력해 주세요.(숫자 1 ~ 10):");
         int quantity = scanner.nextInt();
-        displayMyLotto(quantity, count, random);
+        List<Set<Integer>> myLotto = makeLotto(quantity, count, random);
+        displayMyLotto(myLotto, quantity, count, random);
 
         System.out.println("[로또 발표]");
         Set<Integer> winningNumbers = makeWinningNumbers(count, random);
+        displayWinningNums(winningNumbers, count);
+
+        System.out.println("[내 로또 결과]");
+        displayResult(myLotto, winningNumbers);
 
     }
 
-    private static void displayMyLotto(int quantity, int count, Random random) {
+    private static void displayWinningNums(Set<Integer> winningNumbers, int count) {
+        StringBuilder result = setToString(winningNumbers);
+        System.out.printf("%20s \n", result);
+        System.out.println();
+    }
+
+    private static void displayMyLotto(List<Set<Integer>> myLotto, int quantity, int count, Random random) {
         int order = 0;
-        List<Set<Integer>> myLotto = makeLotto(quantity, count, random);
+
         for (Set<Integer> lottoEach : myLotto) {
             char alphabet = (char) ('A' + order);
-            StringBuilder result = new StringBuilder();
-            for (Integer eachNum : lottoEach) {
-                if (result.length() > 0) {
-                    result.append(",");
-                }
-                result.append(eachNum);
-            }
-            System.out.printf("%-3c %s \n", alphabet, result.toString());
-            System.out.println();
+            StringBuilder result = setToString(lottoEach);
+            System.out.printf("%-3c %s \n", alphabet, result);
             order++;
         }
+        System.out.println();
+    }
+
+    private static void displayResult(List<Set<Integer>> myLotto, Set<Integer> winningNumbers) {
+        int order = 0;
+
+        for (Set<Integer> lottoEach : myLotto) {
+            char alphabet = (char) ('A' + order);
+            StringBuilder result = setToString(lottoEach);
+            lottoEach.retainAll(winningNumbers); // 교집합을 통해 공통 개수 구하기
+            int matchCounts = lottoEach.size();
+            System.out.printf("%-3c %s => %d개 일치\n", alphabet, result, matchCounts);
+        }
+    }
+
+    // display를 하는 메서드의 공통된 부분 추출
+    private static StringBuilder setToString(Set<Integer> lottoEach) {
+        StringBuilder result = new StringBuilder();
+        for (Integer eachNum : lottoEach) {
+            if (result.length() > 0) {
+                result.append(",");
+            }
+            result.append(eachNum);
+        }
+        return result;
     }
 
     // quantity만큼의 로또 라인 생성 함수
