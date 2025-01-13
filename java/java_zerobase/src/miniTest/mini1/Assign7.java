@@ -2,6 +2,7 @@ package miniTest.mini1;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Assign7 {
 
@@ -53,6 +54,7 @@ public class Assign7 {
             String result = setToString(lottoEach);
             lottoEach.retainAll(winningNumbers); // 교집합을 통해 공통 개수 구하기
             int matchCounts = lottoEach.size();
+
             System.out.printf("%-3c %s => %d개 일치\n", alphabet, result, matchCounts);
             order++;
         }
@@ -75,10 +77,11 @@ public class Assign7 {
     private static List<Set<Integer>> makeLotto(int quantity, int count, Random random) {
         List<Set<Integer>> lottoPaper = new ArrayList<>(); // 여러 로또 라인을 하나의 로또 종이안에 구현하기 위함
 
-        for (int i = 0; i < quantity; i++) {
-            Set<Integer> lottoEachLine = getRandomNums(count, random);
-            lottoPaper.add(lottoEachLine);
-        }
+//        for (int i = 0; i < quantity; i++) {
+//            Set<Integer> lottoEachLine = getRandomNums(count, random);
+//            lottoPaper.add(lottoEachLine);
+//        }
+        lottoPaper = IntStream.range(0, quantity).mapToObj(i -> getRandomNums(count, random)).collect(Collectors.toList());
         return lottoPaper;
     }
 
