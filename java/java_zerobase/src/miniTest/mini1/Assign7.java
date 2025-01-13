@@ -1,6 +1,7 @@
 package miniTest.mini1;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Assign7 {
 
@@ -26,21 +27,21 @@ public class Assign7 {
 
     }
 
-    private static void displayWinningNums(Set<Integer> winningNumbers, int count) {
-        StringBuilder result = setToString(winningNumbers);
-        System.out.printf("%20s \n", result);
-        System.out.println();
-    }
-
     private static void displayMyLotto(List<Set<Integer>> myLotto, int quantity, int count, Random random) {
         int order = 0;
 
         for (Set<Integer> lottoEach : myLotto) {
             char alphabet = (char) ('A' + order);
-            StringBuilder result = setToString(lottoEach);
+            String result = setToString(lottoEach);
             System.out.printf("%-3c %s \n", alphabet, result);
             order++;
         }
+        System.out.println();
+    }
+
+    private static void displayWinningNums(Set<Integer> winningNumbers, int count) {
+        String result = setToString(winningNumbers);
+        System.out.printf("%20s \n", result);
         System.out.println();
     }
 
@@ -49,7 +50,7 @@ public class Assign7 {
 
         for (Set<Integer> lottoEach : myLotto) {
             char alphabet = (char) ('A' + order);
-            StringBuilder result = setToString(lottoEach);
+            String result = setToString(lottoEach);
             lottoEach.retainAll(winningNumbers); // 교집합을 통해 공통 개수 구하기
             int matchCounts = lottoEach.size();
             System.out.printf("%-3c %s => %d개 일치\n", alphabet, result, matchCounts);
@@ -58,15 +59,16 @@ public class Assign7 {
     }
 
     // display를 하는 메서드의 공통된 부분 추출
-    private static StringBuilder setToString(Set<Integer> lottoEach) {
-        StringBuilder result = new StringBuilder();
-        for (Integer eachNum : lottoEach) {
-            if (result.length() > 0) {
-                result.append(",");
-            }
-            result.append(eachNum);
-        }
-        return result;
+    private static String setToString(Set<Integer> lottoEach) {
+//        StringBuilder result = new StringBuilder();
+//        for (Integer eachNum : lottoEach) {
+//            if (result.length() > 0) {
+//                result.append(",");
+//            }
+//            result.append(eachNum);
+//        }
+//        return result;
+        return lottoEach.stream().map(String::valueOf).collect(Collectors.joining(","));
     }
 
     // quantity만큼의 로또 라인 생성 함수
@@ -80,11 +82,13 @@ public class Assign7 {
         return lottoPaper;
     }
 
+    // 당첨 번호 생성 로직 메서드
     private static Set<Integer> makeWinningNumbers(int count, Random random) {
         Set<Integer> winningNums = getRandomNums(count, random);
         return winningNums;
     }
 
+    // 무작위로 로또 번호 생성하는 로직 (당첨 번호와 유저들의 로또 페이퍼에 모두 사용됨)
     private static Set<Integer> getRandomNums(int count, Random random) {
         Set<Integer> lottoEachLine = new HashSet<>(); // 로또 번호의 중복을 방지하기 위해 Set 사용
         while (lottoEachLine.size() < count) {
