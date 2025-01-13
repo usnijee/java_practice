@@ -22,6 +22,10 @@ public class Practice {
         IntStream intStream = IntStream.rangeClosed(1, 10).filter(n -> n % 2 == 0);
         System.out.println("sum = " + intStream.reduce((x, y) -> x + y).getAsInt());
 
+        // 강사님 풀이
+        int sum2 = IntStream.range(1, 11).filter(n -> n % 2 == 0).sum();
+        System.out.println("sum2 = " + sum2);
+
 
     }
 }
