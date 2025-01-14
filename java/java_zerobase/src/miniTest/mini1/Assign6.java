@@ -31,6 +31,7 @@ public class Assign6 {
             candidates.put(candidateName, 0); // 후보자를 순서를 유지하여 저장
         }
         System.out.println();
+
         advanceVoting(totalVote, totalCandidate, candidates, random);
     }
 
@@ -53,26 +54,16 @@ public class Assign6 {
         System.out.printf("%-5s", "[투표결과] 당선인 : " + String.join(", ", winners));
     }
 
-    private static List<String> chooseWinner(Map<String, Integer> candidates, Set<Entry<String, Integer>> entries) {
-        Integer maxVotes = Collections.max(candidates.values());
-        List<String> winners = new ArrayList<>(); // 중복 당선인을 위해 저장 공간을 만들기
-        for (Entry<String, Integer> entry : entries) {
-            if (maxVotes.equals(entry.getValue())) {
-                winners.add(entry.getKey());
-            }
-        }
-        return winners;
-    }
-
     private static String performVoting(int totalCandidate, Map<String, Integer> candidates, Random random,
-                                    List<String> candidateList) {
-        int count = random.nextInt(1, totalCandidate +1);
+                                        List<String> candidateList) {
+        int count = random.nextInt(1, totalCandidate + 1);
         String electedCandidate = candidateList.get(count - 1);
         candidates.put(electedCandidate, candidates.get(electedCandidate) + 1);
         return electedCandidate;
     }
 
-    private static void displayVotingStatus(int totalVote, Set<Entry<String, Integer>> entries, int i, String electedCandidate) {
+    private static void displayVotingStatus(int totalVote, Set<Entry<String, Integer>> entries, int i,
+                                            String electedCandidate) {
         List<Entry<String, Integer>> entryList = new ArrayList<>(entries); // entrySet 일반 for문을 사용하기 위함
         double percent = ((double) i / totalVote) * 100; // 투표 진행률
         System.out.println("[투표진행률]: " + percent + "%, " + i + "명 투표 => " + electedCandidate);
@@ -83,7 +74,7 @@ public class Assign6 {
 
     private static void votingStatus(int totalVote, List<Entry<String, Integer>> entryList) {
         for (int j = 1; j <= entryList.size(); j++) {
-            Entry<String, Integer> entry = entryList.get(j-1);
+            Entry<String, Integer> entry = entryList.get(j - 1);
             String candidateName = entry.getKey();
             int countOfCandidate = entry.getValue();
             double percentOfCandidate = ((double) countOfCandidate / totalVote) * 100;
@@ -92,6 +83,17 @@ public class Assign6 {
                     "[기호" + j + "]", candidateName + ":", percentOfCandidate, "(투표수: " + countOfCandidate + ")");
         }
         System.out.println();
+    }
+
+    private static List<String> chooseWinner(Map<String, Integer> candidates, Set<Entry<String, Integer>> entries) {
+        Integer maxVotes = Collections.max(candidates.values());
+        List<String> winners = new ArrayList<>(); // 중복 당선인을 위해 저장 공간을 만들기
+        for (Entry<String, Integer> entry : entries) {
+            if (maxVotes.equals(entry.getValue())) {
+                winners.add(entry.getKey());
+            }
+        }
+        return winners;
     }
 
 }
