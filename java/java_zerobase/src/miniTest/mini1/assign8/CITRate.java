@@ -14,7 +14,7 @@ public enum CITRate {
 
     private final int minValue;
     private final int maxValue;
-    private final int bracketAmount;
+    private final int bracketAmount; // 소득세율구간세
     private final double taxRate;
     private final int pd;
 
@@ -26,34 +26,56 @@ public enum CITRate {
         this.pd = pd;
     }
 
-    public static void calculateTax(int income) {
+    // 소득 세율에 의한 세금 계산 메서드
+    public static void calculateTaxByTaxRate(int income) {
         CITRate findRate = getRange(income);
-        int sumTax = 0;
-        int sumBracket = 0;
+        int sumSubBracketTax = 0; // income 구간의 하위 구간 세금 총합
+        int sumBracketAmount = 0;
         int remainder = 0;
         int totalTax = 0;
         for (CITRate citRate : values()) {
+            /**
+             * 특정 소득에 해당하는 구간의 하위 구간은 소득세율구간세와 세율의 곱으로 계산 후
+             * 차액에 대해 해당 구간의 세율 적용
+             */
             if (citRate.ordinal() < findRate.ordinal()) {
-                sumTax += (int) (citRate.bracketAmount * citRate.taxRate);
-                sumBracket += citRate.bracketAmount;
-                System.out.printf("%10d * %3d%% = %10d", citRate.bracketAmount, (int) (citRate.taxRate * 100), (int)(citRate.bracketAmount * citRate.taxRate));
-                System.out.println();
+                sumSubBracketTax += (int) (citRate.bracketAmount * citRate.taxRate);
+                sumBracketAmount += citRate.bracketAmount;
+
+                displayCalculatedResult(citRate.bracketAmount, citRate);
             }
         }
-        remainder = income - sumBracket;
-        System.out.printf("%10d * %3d%% = %10d", remainder, (int)(findRate.taxRate * 100), (int)(remainder * findRate.taxRate));
-        totalTax = (int) (sumTax + (income - sumTax) * findRate.taxRate);
+        remainder = income - sumBracketAmount; // 차액 (소득 - 하위구간 소득세율구간세 합)
+        displayCalculatedResult(remainder, findRate);
+
+        totalTax = (int) (sumSubBracketTax + remainder * findRate.taxRate);
+
+        System.out.println();
+        System.out.printf("[세율에 의한 세금]: %18d\n" , totalTax);
 
     }
 
-    public static CITRate getRange(int income) {
+    //
+    public static void calculateTaxByPD(int income) {
+        CITRate findRate = getRange(income);
+        long totalTax = Math.round(income * findRate.taxRate) - findRate.pd; // 부동 소수점의 오류? 발생
+
+        System.out.printf("[누진공제 계산에 의한 세금]: %11d\n" , totalTax);
+    }
+
+    private static void displayCalculatedResult(int expense, CITRate rate) {
+        System.out.printf("%10d * %3d%% = %10d\n", expense,
+                (int) (rate.taxRate * 100), (int) (expense * rate.taxRate));
+    }
+
+    private static CITRate getRange(int income) {
         // values : enum 상수의 배열화
         return Arrays.stream(values()).filter(citRate -> citRate
                 .isInRange(income)).findFirst().get();
     }
 
     // 구간을 확인하는 메서드
-    public boolean isInRange(int income) {
+    private boolean isInRange(int income) {
         if (this == HIGHEST) {
             return income > minValue;
         }
