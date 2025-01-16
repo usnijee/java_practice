@@ -56,8 +56,4 @@ public class Practice5 {
         return maxArea;
     }
 
-    private static int solution(int[] height) {
-        return 0;
-    }
-
 }
