@@ -10,4 +10,8 @@ public class Practice5 {
         System.out.println(solution(height));
     }
 
+    private static int solution(int[] height) {
+        return 0;
+    }
+
 }
