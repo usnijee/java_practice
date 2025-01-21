@@ -1,4 +1,4 @@
-package dataStructure.array;
+package lecture.dataStructure.array;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package dataStructure.array.practice;
+package lecture.dataStructure.array.practice;
 
 public class Practice2 {
 
