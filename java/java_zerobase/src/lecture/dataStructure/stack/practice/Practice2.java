@@ -19,20 +19,24 @@ public class Practice2 {
 
     public static void checkParenthesis(String str) {
         Deque<String> stack = new ArrayDeque<>();
+        boolean checkFlag = true;
+
         for (String s : str.split("")) {
             if (s.equals("(")) {
                 stack.push(s);
             } else if (s.equals(")")) {
                 if (stack.isEmpty()) {
-                    System.out.println("FAIL!");
-                    return; // 반복문 빠져 나가기
+//                    System.out.println("FAIL!");
+//                    return; // 반복문 빠져 나가기
+                    checkFlag = false;
+                    break;
                 }
 //                System.out.println(stack.pop());
                 stack.pop();
             }
         }
 
-        if (stack.isEmpty()) {
+        if (checkFlag && stack.isEmpty()) {
             System.out.println("PASS!");
         } else {
             System.out.println("FAIL!");
