@@ -18,14 +18,16 @@ package lecture.dataStructure.queue.practice;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.stream.IntStream;
 
 public class Practice1 {
     public static int findLastCard(int N) {
         Queue<Integer> cards = new LinkedList<>();
 
-        for (int i = 1; i <= N; i++) {
-            cards.offer(i);
-        }
+//        for (int i = 1; i <= N; i++) {
+//            cards.offer(i);
+//        }
+        IntStream.range(1, N + 1).forEach(x -> cards.offer(x));
 
         while (true) {
             if (cards.size() == 1) {
