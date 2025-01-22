@@ -28,6 +28,7 @@ public class Practice1 {
 //            cards.offer(i);
 //        }
         IntStream.range(1, N + 1).forEach(x -> cards.offer(x));
+        System.out.println(cards);
 
         while (true) {
             if (cards.size() == 1) {
@@ -35,6 +36,7 @@ public class Practice1 {
             }
             cards.poll();
             makeAround(cards);
+            System.out.println(cards);
         }
 
         return cards.peek();
