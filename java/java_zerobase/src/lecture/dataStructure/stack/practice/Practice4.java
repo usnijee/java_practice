@@ -44,7 +44,7 @@ public class Practice4 {
 
         // for(char c : input.toCharArray())로 해도 된다
         for (String str : input.split("")) {
-            if (str.equals("#")) {
+            if (str.equals("#") && !stack.isEmpty()) {
                 stack.pop();
                 continue;
             }
