@@ -36,11 +36,7 @@ public class Practice4 {
         String result1 = makeString(s1);
         String result2 = makeString(s2);
 
-        if (result1.equals(result2)) {
-            return true;
-        } else {
-            return false;
-        }
+        return result1.equals(result2);
     }
 
     private static String makeString(String input) {
