@@ -18,12 +18,38 @@ package algorithm.binarySearch.practice;
 
 public class Practice2 {
     public static int solution(int[] arr, int target) {
-        if (arr == null || arr.length = 0) {
+        if (arr == null || arr.length == 0) {
             return -1;
         }
 
         int left = 0;
-        int
+        int right = arr.length - 1;
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+
+            if (target == arr[mid]) {
+                return mid;
+            }
+
+            // 4,5,6,7(mid),0,1,2
+            // mid보다 좌측에 모두 작은 값이 있는 경우 --> 일반적인 경우
+            if (arr[left] <= arr[mid]) {
+                if (target >= arr[left] && target < arr[mid]) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            } else { // 원형 배열로 인해 일반적이지 않은 경우
+                // 11, 5, 6, 7, 8, 9, 10
+                // mid보다 큰 값이 좌측에 존재하는 경우
+                if (target > arr[mid] && target <= arr[right]) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+        }
         return -1;
     }
 
