@@ -27,9 +27,10 @@ public class Practice2 {
         Queue<Integer> joseList = new LinkedList<>();
         ArrayList<Integer> results = new ArrayList<>();
 
-        for (int i = 1; i <= N; i++) {
-            joseList.offer(i);
-        }
+//        for (int i = 1; i <= N; i++) {
+//            joseList.offer(i);
+//        }
+        IntStream.range(1, N + 1).forEach(x -> joseList.offer(x));
 
         while (!joseList.isEmpty()) {
             makeAround(joseList, K);
