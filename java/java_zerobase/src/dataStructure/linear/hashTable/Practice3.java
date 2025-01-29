@@ -42,7 +42,7 @@ public class Practice3 {
         ht.setValue(4, 40);
         ht.printHashTable();
 
-        ht.setValue(1, 100);
+        ht.setValue(1, 100); // 해시 충돌 -> 2의 제곱수 만큼 이동하여 null인 경우 데이터를 삽입 (2^0, 2^1, 2^2 ...)
         ht.printHashTable();
 
         ht.setValue(1, 200);
