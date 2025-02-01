@@ -22,13 +22,13 @@ public class Practice1 {
         bt.inOrder(0);
         System.out.println();
 
-//        System.out.println("== Postorder ==");
-//        bt.postOrder(0);
-//        System.out.println();
-//
-//        System.out.println("== Levelorder ==");
-//        bt.levelOrder(0);
-//        System.out.println();
+        System.out.println("== Postorder ==");
+        bt.postOrder(0);
+        System.out.println();
+
+        System.out.println("== Levelorder ==");
+        bt.levelOrder(0);
+        System.out.println();
     }
 }
 class BinaryTree {
@@ -87,14 +87,21 @@ class BinaryTree {
          */
 
         if (left < this.arr.length) {
-            this.inOrder(left);
+            this.postOrder(left);
         }
 
         if (right < this.arr.length) {
-            this.inOrder(right);
+            this.postOrder(right);
         }
 
         System.out.print(this.arr[idx] + " ");
+    }
+
+    public void levelOrder(int idx) {
+        for (int i = 0; i < this.arr.length; i++) {
+            System.out.print(this.arr[i] + " ");
+        }
+        System.out.println();
     }
 
 }
