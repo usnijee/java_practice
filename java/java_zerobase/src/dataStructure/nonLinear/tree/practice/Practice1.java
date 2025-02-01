@@ -39,7 +39,7 @@ public class Practice1 {
         int left = 2 * idx + 1;
         int right = 2* idx + 2;
 
-        if (left < arr.length - 1) {
+        if (left < arr.length - 1) { // arr.length - 1인 이유 : 처음에 애초에 노드 개수를 1개 더 많게 배열을 생성함
             inOrder(arr, left);
         }
 
