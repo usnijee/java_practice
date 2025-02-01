@@ -1,5 +1,7 @@
 package dataStructure.nonLinear.graph;// Practice2
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 // 인접 행렬 그래프의 DFS, BFS
@@ -31,6 +33,27 @@ class MyGraphMatrix2 extends MyGraphMatrix {
         }
         System.out.println();
     }
+
+    public void bfs(int id) {
+        boolean[] visited = new boolean[this.elemCnt];
+        Queue<Integer> queue = new LinkedList<>();
+
+        queue.offer(id);
+        visited[id] = true;
+
+        while (!queue.isEmpty()) {
+            int curId = queue.poll();
+            System.out.print(this.vertices[curId] + " ");
+
+            for (int i = this.elemCnt - 1; i >= 0; i--) {
+                if (this.adjMat[curId][i] == 1 && visited[i] == false) {
+                    queue.offer(i);
+                    visited[i] = true;
+                }
+            }
+        }
+        System.out.println();
+    }
 }
 
 
@@ -56,8 +79,10 @@ public class Practice2 {
         graph.addEdge(3, 5);
         graph.addEdge(4, 6);
         graph.addEdge(5, 6);
+        graph.printAdjacentMatrix();
 
+        System.out.println();
         graph.dfs(0);
-//        graph.bfs(0);
+        graph.bfs(0);
     }
 }
