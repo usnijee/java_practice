@@ -58,5 +58,14 @@ public class Practice1 {
         PriorityQueue<Person> pq2 = new PriorityQueue<>(
                 (Person p1, Person p2) -> p1.age >= p2.age ? 1 : -1);
 
+        for (int i = 0; i < name.length; i++) {
+            pq2.offer(new Person(name[i], age[i]));
+        }
+
+        System.out.println("== 실제 출력 순서 ==");
+        while (!pq2.isEmpty()) {
+            Person p = pq2.poll();
+            System.out.println(p.name + " " + p.age);
+        }
     }
 }
