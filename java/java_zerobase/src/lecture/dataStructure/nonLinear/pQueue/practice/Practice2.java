@@ -13,9 +13,38 @@ package lecture.dataStructure.nonLinear.pQueue.practice;// Practice2
 // 출력: 2
 
 
+import java.util.Collections;
+import java.util.PriorityQueue;
+
+/**
+ * 확실하게 짚고 넘어가자!
+ *
+ * 1. return; : 특정 조건이 참일때 메서드를 종료시킴
+ * 2. continue : 특정 조건이 참일때 그 시점의 반복문을 건너뛰고 다음 반복문으로 넘어감
+ */
 public class Practice2 {
     public static void solution(int[] stones) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+        int result = 0;
 
+        for (int stone : stones) {
+            pq.offer(stone);
+        }
+
+        while (!pq.isEmpty()) {
+            if (pq.size() == 1) {
+                result = pq.poll();
+                break;
+            }
+            int stone1 = pq.poll();
+            int stone2 = pq.poll();
+
+            if (stone1 != stone2) {
+                pq.offer(Math.abs(stone1 - stone2));
+            }
+        }
+
+        System.out.println(result);
     }
 
     public static void main(String[] args) {
