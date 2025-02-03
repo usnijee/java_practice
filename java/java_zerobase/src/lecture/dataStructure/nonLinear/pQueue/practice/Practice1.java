@@ -1,5 +1,5 @@
 package lecture.dataStructure.nonLinear.pQueue.practice;// Practice1
-// nums 배열에 주어진 정수들 중에서 k 번째로 큰 수를 반환한는 프로그램을 작성하세요.
+// nums 배열에 주어진 정수들 중에서 k 번째로 큰 수를 반환하는 프로그램을 작성하세요.
 
 // 입력 예시
 // 입력: 3, 1, 2, 7, 6, 4
@@ -11,9 +11,28 @@ package lecture.dataStructure.nonLinear.pQueue.practice;// Practice1
 // 출력: 1
 
 
+import java.util.Collections;
+import java.util.PriorityQueue;
+
 public class Practice1 {
     public static int solution1(int[] nums, int k) {
-        return 0;
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+        for (int num : nums) {
+            pq.offer(num);
+        }
+
+        int idx = 1;
+        int result = 0;
+
+        while (!pq.isEmpty()) {
+            if (idx == k) {
+                result = pq.poll();
+                break;
+            }
+            result = pq.poll();
+            idx++;
+        }
+        return result;
     }
 
     public static int solution2(int[] nums, int k) {
