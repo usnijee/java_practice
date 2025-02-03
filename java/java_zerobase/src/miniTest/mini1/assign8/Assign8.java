@@ -14,6 +14,5 @@ public class Assign8 {
         CITRate.calculateTaxByTaxRate(annualIncome);
         CITRate.calculateTaxByPD(annualIncome);
 
-
     }
 }

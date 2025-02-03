@@ -1,4 +1,7 @@
 package miniTest.mini1;
+/**
+ * BE33_이진수
+ */
 
 import java.util.Scanner;
 

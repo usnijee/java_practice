@@ -19,7 +19,6 @@ public class MyLinkedListV3<E> {
             lastNode.next = newNode;
         }
         size++;
-
     }
 
     private Node<E> getLastNode() {

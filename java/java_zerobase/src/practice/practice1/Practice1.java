@@ -1,6 +1,5 @@
-package practice;
+package practice.practice1;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**

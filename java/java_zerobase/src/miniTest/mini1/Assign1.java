@@ -1,5 +1,8 @@
 package miniTest.mini1;
 
+/**
+ * 이진수
+ */
 public class Assign1 {
 
     public static void main(String[] args) {

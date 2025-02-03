@@ -51,7 +51,7 @@ public enum CITRate {
         totalTax = (int) (sumSubBracketTax + remainder * findRate.taxRate);
 
         System.out.println();
-        System.out.printf("[세율에 의한 세금]: %18d\n" , totalTax);
+        System.out.printf("[세율에 의한 세금]: %17d\n" , totalTax);
 
     }
 
@@ -60,11 +60,11 @@ public enum CITRate {
         CITRate findRate = getRange(income);
         long totalTax = Math.round(income * findRate.taxRate) - findRate.pd; // 부동 소수점의 오류? 발생
 
-        System.out.printf("[누진공제 계산에 의한 세금]: %11d\n" , totalTax);
+        System.out.printf("[누진공제 계산에 의한 세금]: %10d\n" , totalTax);
     }
 
     private static void displayCalculatedResult(int expense, CITRate rate) {
-        System.out.printf("%10d * %3d%% = %10d\n", expense,
+        System.out.printf("%10d * %3d%% = %11d\n", expense,
                 (int) (rate.taxRate * 100), (int) (expense * rate.taxRate));
     }
 

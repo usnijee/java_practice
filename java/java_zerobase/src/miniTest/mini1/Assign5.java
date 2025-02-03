@@ -1,4 +1,11 @@
 package miniTest.mini1;
+/**
+ *  최종 구현 실패
+ *
+ *  year와 month 입력시 해당 year와 month에 해당하는 달력만 출력되는 부분까지 구현
+ *
+ *  BE33_이진수
+ */
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
