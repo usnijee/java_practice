@@ -9,7 +9,8 @@ package lecture.dataStructure.nonLinear.pQueue;// Practice 1
 
 import java.util.PriorityQueue;
 
-class Person implements Comparable<Person>{
+//class Person implements Comparable<Person>{
+class Person {
     String name;
     int age;
 
@@ -18,15 +19,15 @@ class Person implements Comparable<Person>{
         this.age = age;
     }
 
-    @Override
-    public int compareTo(Person o) {
-        // 1: 변경 x
-        // -1 : 변경 함
-
-        // 새롭게 추가한 Person o와 this를 비교해서 age가 더 크면 바꾸도록 함
-        return this.age >= o.age ? 1 : -1; // o.age가 기존에 존재하던 객체를 의미 -> 오름차순
-//        return this.age >= o.age ? -1 : 1;; // 내림 차순
-    }
+//    @Override
+//    public int compareTo(Person o) {
+//        // 1: 변경 x
+//        // -1 : 변경 함
+//
+//        // 새롭게 추가한 Person o와 this를 비교해서 age가 더 크면 바꾸도록 함
+//        return this.age >= o.age ? 1 : -1; // o.age가 기존에 존재하던 객체를 의미 -> 오름차순
+////        return this.age >= o.age ? -1 : 1;; // 내림 차순
+//    }
 }
 
 public class Practice1 {
@@ -49,6 +50,13 @@ public class Practice1 {
         String[] name = {"A", "B", "C", "D", "E"};
         int[] age = {30, 20, 45, 62, 35};
 
-        solution(name, age);
+//        solution(name, age);
+        /**
+         * Person 객체를 comparable하게 안해도 우선순위 큐의 파라미터로
+         * 람다를 활용해서 비교 방식을 정의해도 된다
+         */
+        PriorityQueue<Person> pq2 = new PriorityQueue<>(
+                (Person p1, Person p2) -> p1.age >= p2.age ? 1 : -1);
+
     }
 }
