@@ -11,32 +11,45 @@ package lecture.dataStructure.nonLinear.pQueue.practice;// Practice1
 // 출력: 1
 
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class Practice1 {
     public static int solution1(int[] nums, int k) {
-        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+//        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+//        for (int num : nums) {
+//            pq.offer(num);
+//        }
+//
+//        int idx = 1;
+//        int result = 0;
+//
+//        while (!pq.isEmpty()) {
+//            if (idx == k) {
+//                result = pq.poll();
+//                break;
+//            }
+//            result = pq.poll();
+//            idx++;
+//        }
+//        return result;
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
         for (int num : nums) {
             pq.offer(num);
-        }
 
-        int idx = 1;
-        int result = 0;
-
-        while (!pq.isEmpty()) {
-            if (idx == k) {
-                result = pq.poll();
-                break;
+            if (pq.size() > k) {
+                pq.poll(); // 반복문을 진행하면 결국 k개만 남음
             }
-            result = pq.poll();
-            idx++;
         }
-        return result;
+
+        return pq.peek();
     }
 
     public static int solution2(int[] nums, int k) {
-        return 0;
+        Arrays.sort(nums);
+        return nums[nums.length - k];
     }
 
     public static void main(String[] args) {
