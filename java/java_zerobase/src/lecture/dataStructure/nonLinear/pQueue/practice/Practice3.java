@@ -12,9 +12,11 @@ package lecture.dataStructure.nonLinear.pQueue.practice;// Practice3
 // 출력: 3, 1, 2
 
 
+import java.util.PriorityQueue;
+
 public class Practice3 {
     public static void solution1(int[] nums, int k) {
-
+        PriorityQueue<Integer>
     }
 
     public static void solution2(int[] nums, int k) {

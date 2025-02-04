@@ -10,9 +10,11 @@ package lecture.dataStructure.nonLinear.pQueue.practice;// Practice4
 // 출력: null
 
 
+import java.util.PriorityQueue;
+
 public class Practice4 {
     public static String solution(String s) {
-        return null;
+        PriorityQueue<String> pq = new PriorityQueue<>()
     }
 
     public static void main(String[] args) {
