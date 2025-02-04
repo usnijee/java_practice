@@ -33,7 +33,7 @@ public class Practice1 {
             }
             pos = Math.max(pos, i + nums[i]); // i: 현재위치 , nums[i]: 현재위치에서 오른쪽으로 이동할 수 있는 정도
         }
-        return false;
+        return true;
     }
 
     public static void main(String[] args) {
