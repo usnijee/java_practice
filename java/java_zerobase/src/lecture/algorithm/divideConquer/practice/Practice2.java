@@ -8,6 +8,9 @@ package lecture.algorithm.divideConquer.practice;// Practice2
 // lists: {{2, 3, 9}, {1, 5, 7}, {3, 6, 7, 11}}
 // 출력: 1 -> 2 -> 3 -> 3 -> 5 -> 6 -> 7 -> 7 -> 9 -> 11
 
+/**
+ * 다시 풀어볼것
+ */
 
 class Node {
     int val;
