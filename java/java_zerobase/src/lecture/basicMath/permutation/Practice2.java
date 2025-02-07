@@ -7,6 +7,20 @@ import java.util.Arrays;
 public class Practice2 {
     void permutation(int[] arr, int depth, int n, int r, boolean[] visited, int[] out) {
 
+        if (depth == r) {
+            System.out.println(Arrays.toString(out));
+            return;
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (visited[i] != true) {
+                visited[i] = true;
+                out[depth] = arr[i];
+                permutation(arr, depth + 1, n, r, visited, out);
+                visited[i] = false;
+            }
+        }
+
     }
 
     public static void main(String[] args) {
