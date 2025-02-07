@@ -25,15 +25,19 @@ public class Main {
 
 //      2. 집합 연산
         System.out.println("== 집합 연산 ==");
+        HashSet<Integer> a = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5));
+        HashSet<Integer> b = new HashSet<>(Arrays.asList(3, 4, 5, 6, 7));
 
 //      2-1. 교집합
-
+//        a.retainAll(b);
 
 //      2-2. 합집합
-
+//        a.addAll(b);
 
 //      2-3. 차집합
+//        a.removeAll(b);
 
+        System.out.println(a);
 
     }
 
