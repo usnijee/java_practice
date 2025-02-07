@@ -5,6 +5,32 @@ package lecture.basicMath.permutation;// Practice1
 public class Practice1 {
     void permutation(int[] arr, int depth, int n, int r) {
 
+        if (depth == r) {
+            /**
+             * r : 자리 수
+             * depth는 각 자리를 의미  ex. depth = 1이면 일의 자리
+             *
+             * 즉, depth가 r이 되었다는 것은 원하는 자리수에 도달했음을 의미
+             */
+            for (int i = 0; i < r; i++) {
+                System.out.print(arr[i] + " ");
+            }
+            System.out.println();
+            return;
+        }
+
+        for (int i = depth; i < n; i++) {
+            swap(arr, depth, i);
+            permutation(arr, depth + 1, n, r);
+            swap(arr, depth, i);
+        }
+
+    }
+
+    private void swap(int[] arr, int depth, int index) {
+        int tmp = arr[depth];
+        arr[depth] = arr[index];
+        arr[index] = tmp;
     }
 
 
